@@ -49,7 +49,7 @@ stages {
     stage('gradle build') {
         steps {
             withGradle {
-                sh '/bitnami/jenkins/home/tools/hudson.plugins.gradle.GradleInstallation/Gradle/gradle-7.3.1/bin/gradle build'
+                sh './gradlew clean build --build-cache --parallel'
              }
          }
      }
