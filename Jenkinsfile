@@ -15,18 +15,15 @@
 //         }
 //     }
 // }
-
-    environment {
-        GIT_PROJECT_URL = "${GIT_PROJECT_URL}"
-        IMAGE_VERSION = "${params.IMAGE_VERSION}"
-        }
-
-
 pipeline {
     agent any
     tools {
         gradle "Gradle"
     }
+    environment {
+        GIT_PROJECT_URL = "${GIT_PROJECT_URL}"
+        IMAGE_VERSION = "${params.IMAGE_VERSION}"
+        }
  options {
     skipDefaultCheckout(true)
  } 
