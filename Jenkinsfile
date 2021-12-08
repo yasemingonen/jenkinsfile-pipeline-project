@@ -1,12 +1,10 @@
 pipeline {
     agent any
     
-    stage('Checkout external proj') {
+    stage('Checkout') {
         steps {
             git branch: 'main',
                 url: 'git@github.com:yasemingonen/jenkinsfile-pipeline-project.git'
-
-            sh "ls -lat"
         }
     }
     
