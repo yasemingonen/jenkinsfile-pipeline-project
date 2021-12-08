@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    tools {
+        gradle "GRADLE_LATEST"
+    }
  options {
     skipDefaultCheckout(true)
  }    
