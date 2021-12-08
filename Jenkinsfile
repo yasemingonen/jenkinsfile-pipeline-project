@@ -1,6 +1,8 @@
 pipeline {
     agent any
-    
+ options {
+    skipDefaultCheckout(true)
+        }    
  stages { 
 //         stage('Checkout') {
 //           steps {
@@ -8,9 +10,7 @@ pipeline {
 //                   url: 'git@github.com:yasemingonen/jenkinsfile-pipeline-project.git'
 //           }
 //         }
-        options {
-            skipDefaultCheckout(true)
-        }   
+  
         stage('However I want to name a stage') {
             steps {
                 checkout scm
