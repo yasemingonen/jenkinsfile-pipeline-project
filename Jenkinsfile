@@ -9,18 +9,24 @@ pipeline {
                 checkout scm
             }
         }
-        stage('Maven Build') {
+     
+       stage ('Build') {
             steps {
-                echo 'Compiling the java source code'
-                sh 'javac HelloWorld.java'
+                sh './gradlew clean build'
             }
-        }
-        stage('Docker Build') {
-            steps {
-                echo 'Compiling the java source code'
-                sh 'javac HelloWorld.java'
-            }
-        }
+       }
+//         stage('Maven Build') {
+//             steps {
+//                 echo 'Compiling the java source code'
+//                 sh 'javac HelloWorld.java'
+//             }
+//         }
+//         stage('Docker Build') {
+//             steps {
+//                 echo 'Compiling the java source code'
+//                 sh 'javac HelloWorld.java'
+//             }
+//         }
 //         stage('Docker Push') {
 //             steps {
 //                 echo 'Compiling the java source code'
