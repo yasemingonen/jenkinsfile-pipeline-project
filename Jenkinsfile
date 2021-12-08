@@ -16,7 +16,10 @@
 //     }
 // }
 
-
+    environment {
+        GIT_PROJECT_URL = "${GIT_PROJECT_URL}"
+        IMAGE_VERSION = "${params.IMAGE_VERSION}"
+        }
 
 
 pipeline {
@@ -27,6 +30,16 @@ pipeline {
  options {
     skipDefaultCheckout(true)
  } 
+
+ stage('Get Source Code') {
+            steps {
+                checkout scm: [$class: 'GitSCM', userRemoteConfigs: [[url: '${GIT_PROJECT_URL}' ]], branches: [[name: '${IMAGE_VERSION}']]],poll: false
+                sh '''#!/bin/bash -e
+                mvn -version
+                echo STEP: checkout git scm. Source Code URL: ${GIT_PROJECT_URL}, Source Code Version: ${IMAGE_VERSION} 
+                '''
+            }
+        }
     
 // node {
 //   withGradle {
