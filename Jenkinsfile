@@ -7,22 +7,22 @@ pipeline {
     skipDefaultCheckout(true)
  } 
     
-// node {
-//   withGradle {
-//     sh './gradlew build'
-//   }
+node {
+  withGradle {
+    sh './gradlew build'
+  }
+}
+}
+// stages { 
+//     stage('gradle build') {
+//         steps {
+//             withGradle {
+//                 sh './gradlew build'
+//              }
+//          }
+//      }
 // }
 
-stages { 
-    stage('gradle build') {
-        steps {
-            withGradle {
-                sh './gradlew build'
-             }
-         }
-     }
-}
-}
 
 //        stage ('Build') {
 //             steps {
