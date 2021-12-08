@@ -38,7 +38,7 @@ stages {
     stage('gradle build') {
         steps {
             withGradle {
-                sh './gradlew build'
+                sh '/bitnami/jenkins/home/tools/hudson.plugins.gradle.GradleInstallation/Gradle/gradle-7.3.1/bin/gradle build'
              }
          }
      }
