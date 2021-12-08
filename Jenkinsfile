@@ -12,13 +12,13 @@ pipeline {
         stage('Maven Build') {
             steps {
                 echo 'Compiling the java source code'
-                sh 'javac Hello.java'
+                sh 'javac HelloWorld.java'
             }
         }
         stage('Docker Build') {
             steps {
                 echo 'Compiling the java source code'
-                sh 'javac Hello.java'
+                sh 'javac HelloWorld.java'
             }
         }
 //         stage('Docker Push') {
