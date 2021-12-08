@@ -1,14 +1,14 @@
 pipeline {
     agent any
     
-    stage('Checkout') {
-        steps {
-            git branch: 'main',
-                url: 'git@github.com:yasemingonen/jenkinsfile-pipeline-project.git'
+ stages { 
+        stage('Checkout') {
+          steps {
+              git branch: 'main',
+                  url: 'git@github.com:yasemingonen/jenkinsfile-pipeline-project.git'
+          }
         }
-    }
     
-    stages {
         stage('build') {
             steps {
                 echo 'Compiling the java source code'
