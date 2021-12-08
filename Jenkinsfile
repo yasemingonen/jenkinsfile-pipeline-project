@@ -13,14 +13,17 @@ pipeline {
 //   }
 // }
 
- stages { 
-        stage('gradle build') {
-            steps {
-                withGradle {
-                     sh './gradlew build'
-                 }
-            }
-     
+stages { 
+    stage('gradle build') {
+        steps {
+            withGradle {
+                sh './gradlew build'
+             }
+         }
+     }
+}
+}
+
 //        stage ('Build') {
 //             steps {
 //                 sh './gradle clean build'
@@ -50,5 +53,3 @@ pipeline {
 //                 sh 'java Hello'
 //             }
 //         }
-    }
-}
