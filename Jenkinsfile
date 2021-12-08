@@ -5,19 +5,26 @@ pipeline {
     }
  options {
     skipDefaultCheckout(true)
- }    
- stages { 
-        stage('Test Checkout') {
-            steps {
-                checkout scm
-            }
-        }
+ } 
+    
+node {
+  withGradle {
+    sh './gradlew build'
+  }
+}
+
+//  stages { 
+//         stage('Test Checkout') {
+//             steps {
+//                 checkout scm
+//             }
+//         }
      
-       stage ('Build') {
-            steps {
-                sh './gradle clean build'
-            }
-       }
+//        stage ('Build') {
+//             steps {
+//                 sh './gradle clean build'
+//             }
+//        }
 //         stage('Maven Build') {
 //             steps {
 //                 echo 'Compiling the java source code'
