@@ -27,8 +27,16 @@ pipeline {
  options {
     skipDefaultCheckout(true)
  } 
+   
+// node {
+//   withGradle {
+//     sh './gradlew build'
+//   }
+// }
 
- stage('Get Source Code') {
+stages { 
+    
+    stage('Get Source Code') {
             steps {
                 checkout scm: [$class: 'GitSCM', userRemoteConfigs: [[url: '${GIT_PROJECT_URL}' ]], branches: [[name: '${IMAGE_VERSION}']]],poll: false
                 sh '''#!/bin/bash -e
@@ -38,13 +46,6 @@ pipeline {
             }
         }
     
-// node {
-//   withGradle {
-//     sh './gradlew build'
-//   }
-// }
-
-stages { 
     stage('gradle build') {
         steps {
             withGradle {
