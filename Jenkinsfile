@@ -4,29 +4,34 @@ pipeline {
     skipDefaultCheckout(true)
  }    
  stages { 
-//         stage('Checkout') {
-//           steps {
-//               git branch: 'main',
-//                   url: 'git@github.com:yasemingonen/jenkinsfile-pipeline-project.git'
-//           }
-//         }
-  
-        stage('However I want to name a stage') {
+        stage('Test Checkout') {
             steps {
                 checkout scm
             }
         }
-        stage('build') {
+        stage('Maven Build') {
             steps {
                 echo 'Compiling the java source code'
                 sh 'javac Hello.java'
             }
         }
-        stage('run') {
+        stage('Docker Build') {
             steps {
-                echo 'Running the compiled java code.'
-                sh 'java Hello'
+                echo 'Compiling the java source code'
+                sh 'javac Hello.java'
             }
         }
+//         stage('Docker Push') {
+//             steps {
+//                 echo 'Compiling the java source code'
+//                 sh 'javac Hello.java'
+//             }
+//         }
+//         stage('Helm Upgrade') {
+//             steps {
+//                 echo 'Running the compiled java code.'
+//                 sh 'java Hello'
+//             }
+//         }
     }
 }
